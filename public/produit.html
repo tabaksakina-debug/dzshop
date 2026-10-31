@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DZShop — Produit</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ BARRE DE NAVIGATION (la même sur toutes les pages) ============ -->
+  <header class="navbar">
+    <a href="index.html" class="logo">DZ<span>Shop</span></a>
+    <nav class="navbar-liens">
+      <a href="index.html">Catalogue</a>
+      <a href="panier.html" class="lien-panier">🛒 Panier <span id="compteur-panier">0</span></a>
+    </nav>
+  </header>
+
+  <main class="contenu">
+    <a href="index.html" class="retour">← Retour au catalogue</a>
+
+    <!-- ============ LA FICHE DU PRODUIT ============ -->
+    <!-- Elle est vide : fiche-produit.js la remplit selon l'id présent dans l'adresse -->
+    <section id="zone-produit" class="fiche"></section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 DZShop — Projet nexstep</p>
+  </footer>
+
+  <!-- L'ordre compte : 1. les données  2. les outils communs  3. le panier  4. le code de la page -->
+  <script src="js/commun.js"></script>
+  <script src="js/panier.js"></script>
+  <script src="js/fiche-produit.js"></script>
+</body>
+</html>

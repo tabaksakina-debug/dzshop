@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DZShop — Commande</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ BARRE DE NAVIGATION ============ -->
+  <header class="navbar">
+    <a href="index.html" class="logo">DZ<span>Shop</span></a>
+    <nav class="navbar-liens">
+      <a href="index.html">Catalogue</a>
+      <a href="panier.html" class="lien-panier">🛒 Panier <span id="compteur-panier">0</span></a>
+    </nav>
+  </header>
+
+  <main class="contenu">
+    <a href="panier.html" class="retour">← Retour au panier</a>
+    <h1 class="titre-page">📦 Ma commande</h1>
+
+    <!-- commande.js remplace tout le contenu de cette zone par la confirmation quand la commande est passée -->
+    <section id="zone-commande" class="commande">
+
+      <!-- ============ LE FORMULAIRE DE LIVRAISON ============ -->
+      <form id="form-commande" class="form-commande">
+        <h2>Livraison</h2>
+
+        <label for="nom">Nom et prénom</label>
+        <input id="nom" type="text" placeholder="Ex : Karim Benali" required>
+
+        <label for="telephone">Téléphone</label>
+        <input id="telephone" type="tel" placeholder="Ex : 0550123456" required>
+
+        <label for="wilaya">Wilaya</label>
+        <select id="wilaya" required>
+          <option value="">Choisis ta wilaya</option>
+          <!-- les 58 wilayas sont ajoutées par commande.js -->
+        </select>
+
+        <label for="adresse">Adresse</label>
+        <textarea id="adresse" rows="3" placeholder="Rue, numéro, quartier, commune" required></textarea>
+
+        <p id="erreur-commande" class="erreur-commande"></p>
+
+        <button id="btn-valider" type="submit" class="btn btn-principal">Valider la commande</button>
+        <p class="resume-note">💵 Paiement à la livraison</p>
+      </form>
+
+      <!-- ============ LE RÉCAPITULATIF ============ -->
+      <aside id="recap-commande" class="resume-panier"></aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 DZShop — Projet nexstep</p>
+  </footer>
+
+  <script src="js/commun.js"></script>
+  <script src="js/panier.js"></script>
+  <script src="js/commande.js"></script>
+</body>
+</html>

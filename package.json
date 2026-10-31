@@ -1,0 +1,16 @@
+{
+  "name": "dzshop",
+  "version": "1.0.0",
+  "description": "DZShop — boutique en ligne (projet nexstep)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0"
+  }
+}

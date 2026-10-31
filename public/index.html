@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DZShop — Catalogue</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ BARRE DE NAVIGATION ============ -->
+  <header class="navbar">
+    <a href="index.html" class="logo">DZ<span>Shop</span></a>
+    <nav class="navbar-liens">
+      <a href="index.html">Catalogue</a>
+      <a href="panier.html" class="lien-panier">🛒 Panier <span id="compteur-panier">0</span></a>
+    </nav>
+  </header>
+
+  <!-- ============ BANNIÈRE ============ -->
+  <section class="banniere">
+    <h1>La tech au meilleur prix en Algérie</h1>
+    <p>Livraison dans les 58 wilayas · Paiement à la livraison</p>
+  </section>
+
+  <main class="contenu">
+
+    <!-- ============ OUTILS : RECHERCHE + FILTRE ============ -->
+    <section class="outils">
+      <input type="search" id="recherche" placeholder="Rechercher un produit… (ex : souris)">
+
+      <select id="categorie">
+        <option value="toutes">Toutes les catégories</option>
+        <option value="gaming">Gaming</option>
+        <option value="audio">Audio</option>
+        <option value="informatique">Informatique</option>
+        <option value="telephonie">Téléphonie</option>
+        <option value="maison">Maison connectée</option>
+      </select>
+
+      <button id="btn-reinitialiser" type="button">Réinitialiser</button>
+    </section>
+
+    <p id="compteur" class="compteur"></p>
+
+    <!-- ============ GRILLE DES PRODUITS ============ -->
+    <!-- Elle est vide : c'est le JavaScript qui va la remplir -->
+    <section id="grille-produits" class="grille"></section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 DZShop — Projet nexstep</p>
+  </footer>
+
+  <!-- L'ordre compte : 1. les données  2. les outils communs  3. le panier  4. le code de la page -->
+  <script src="js/commun.js"></script>
+  <script src="js/panier.js"></script>
+  <script src="js/catalogue.js"></script>
+</body>
+</html>

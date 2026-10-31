@@ -1,0 +1,612 @@
+/* =============================================================
+   style.css — le design de DZShop
+   ============================================================= */
+
+/* ---------- Variables (les couleurs du site) ---------- */
+:root {
+  --vert: #0f766e;
+  --vert-fonce: #115e59;
+  --vert-clair: #ccfbf1;
+  --sombre: #0f172a;
+  --gris: #64748b;
+  --gris-clair: #f1f5f9;
+  --bordure: #e2e8f0;
+  --rouge: #dc2626;
+  --orange: #d97706;
+  --blanc: #ffffff;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--gris-clair);
+  color: var(--sombre);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Barre de navigation ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: var(--sombre);
+  color: var(--blanc);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.logo span {
+  color: #2dd4bf;
+}
+
+.navbar-liens {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.navbar-liens a:hover {
+  color: #2dd4bf;
+}
+
+.lien-panier {
+  background: var(--vert);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+#compteur-panier {
+  background: var(--blanc);
+  color: var(--vert);
+  border-radius: 999px;
+  padding: 0 8px;
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+/* ---------- Bannière ---------- */
+.banniere {
+  background: linear-gradient(135deg, var(--vert-fonce), var(--vert));
+  color: var(--blanc);
+  text-align: center;
+  padding: 48px 20px;
+}
+
+.banniere h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+/* ---------- Contenu principal ---------- */
+.contenu {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* ---------- Outils : recherche + filtre ---------- */
+.outils {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.outils input,
+.outils select,
+.outils button {
+  padding: 12px 14px;
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  font-size: 1rem;
+  background: var(--blanc);
+}
+
+.outils input {
+  flex: 1;
+  min-width: 220px;
+}
+
+.outils button {
+  cursor: pointer;
+}
+
+.outils button:hover {
+  background: var(--sombre);
+  color: var(--blanc);
+}
+
+.compteur {
+  color: var(--gris);
+  margin-bottom: 20px;
+}
+
+/* ---------- Grille des produits ---------- */
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- Carte produit ---------- */
+.carte {
+  background: var(--blanc);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--bordure);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.carte:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+}
+
+.carte img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: var(--blanc);
+  padding: 16px;
+}
+
+.carte-corps {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.carte-categorie {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--vert);
+  font-weight: 700;
+}
+
+.carte h3 {
+  font-size: 1rem;
+}
+
+.carte-prix {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-top: auto;
+}
+
+/* ---------- Badges de stock ---------- */
+.badge {
+  align-self: flex-start;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.badge-rupture {
+  background: #fee2e2;
+  color: var(--rouge);
+}
+
+.badge-bientot {
+  background: #fef3c7;
+  color: var(--orange);
+}
+
+/* Un produit en rupture est affiché en grisé */
+.carte.en-rupture img {
+  opacity: 0.4;
+}
+
+/* ---------- Message « aucun résultat » ---------- */
+.vide {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--gris);
+  padding: 48px 20px;
+  background: var(--blanc);
+  border-radius: 14px;
+  border: 1px dashed var(--bordure);
+}
+
+/* ---------- Pied de page ---------- */
+.footer {
+  text-align: center;
+  color: var(--gris);
+  padding: 24px;
+}
+
+/* ---------- Téléphone ---------- */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 14px 16px;
+  }
+
+  .banniere h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* =============================================================
+   SÉANCE 2 — la page produit, le panier, les boutons
+   ============================================================= */
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-principal {
+  background: var(--vert);
+  color: var(--blanc);
+}
+
+.btn-principal:hover {
+  background: var(--vert-fonce);
+}
+
+.btn-secondaire {
+  background: var(--blanc);
+  border-color: var(--bordure);
+  color: var(--sombre);
+}
+
+.btn-secondaire:hover {
+  border-color: var(--rouge);
+  color: var(--rouge);
+}
+
+/* ---------- Lien de retour + titre de page ---------- */
+.retour {
+  display: inline-block;
+  color: var(--vert);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.retour:hover {
+  text-decoration: underline;
+}
+
+.titre-page {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* ---------- Page produit : la fiche ---------- */
+.fiche {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.galerie #image-principale {
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+  border: 1px solid var(--bordure);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.miniatures {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.miniature {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border: 2px solid var(--bordure);
+  border-radius: 10px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.miniature:hover,
+.miniature.active {
+  border-color: var(--vert);
+}
+
+.fiche-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fiche-infos h1 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+}
+
+.fiche-infos h2 {
+  font-size: 1.1rem;
+  margin-top: 12px;
+}
+
+.fiche-prix {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--vert);
+}
+
+.fiche-stock {
+  color: var(--gris);
+}
+
+.fiche-description {
+  color: #334155;
+}
+
+.achat {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.achat input {
+  width: 80px;
+  padding: 12px;
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+/* ---------- Page panier ---------- */
+.panier {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
+
+.lignes-panier {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ligne-panier {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+
+.ligne-panier img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.ligne-infos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ligne-infos a {
+  font-weight: 700;
+}
+
+.ligne-infos a:hover {
+  color: var(--vert);
+}
+
+.ligne-prix-unitaire {
+  color: var(--gris);
+  font-size: 0.9rem;
+}
+
+.ligne-quantite {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ligne-quantite button,
+.btn-supprimer {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--bordure);
+  border-radius: 8px;
+  background: var(--blanc);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.ligne-quantite button:hover {
+  background: var(--sombre);
+  color: var(--blanc);
+}
+
+.btn-supprimer:hover {
+  border-color: var(--rouge);
+}
+
+.ligne-sous-total {
+  min-width: 110px;
+  text-align: right;
+}
+
+.resume-panier {
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resume-total {
+  font-size: 1.3rem;
+}
+
+.resume-note {
+  color: var(--gris);
+  font-size: 0.9rem;
+}
+
+/* Le message « vide » contient maintenant un bouton */
+.vide .btn {
+  margin-top: 16px;
+}
+
+/* ---------- Page commande ---------- */
+.commande {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+.form-commande {
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-commande h2,
+.resume-panier h2 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.form-commande label {
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.form-commande input,
+.form-commande select,
+.form-commande textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  font: inherit;
+  background: var(--blanc);
+}
+
+.form-commande button {
+  margin-top: 12px;
+}
+
+.erreur-commande {
+  color: var(--rouge);
+  font-weight: 600;
+  min-height: 1.5em;
+}
+
+.recap-ligne {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.recap-ligne span:last-child {
+  white-space: nowrap;
+}
+
+.confirmation {
+  grid-column: 1 / -1;
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 14px;
+  padding: 40px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.confirmation-icone {
+  font-size: 3rem;
+}
+
+/* ---------- Le petit message en bas de l'écran ---------- */
+.message-flash {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--sombre);
+  color: var(--blanc);
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
+  z-index: 20;
+}
+
+/* ---------- Téléphone et tablette ---------- */
+@media (max-width: 800px) {
+  .commande {
+    grid-template-columns: 1fr;
+  }
+
+  .fiche,
+  .panier {
+    grid-template-columns: 1fr;
+  }
+
+  .galerie #image-principale {
+    height: 280px;
+  }
+
+  .ligne-panier {
+    flex-wrap: wrap;
+  }
+
+  .ligne-sous-total {
+    min-width: 0;
+    margin-left: auto;
+  }
+}
